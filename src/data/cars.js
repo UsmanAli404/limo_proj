@@ -13,7 +13,7 @@ const cars = [
     id: 2,
     name: "Mersedes Benz V Class",
     detail:
-      "The V-Class impresses with its modern design and high-class appeal – both inside and out.",
+      "The V-Class imasdadpresses with its modern design and high-class appeal – both inside and out.",
     image: "/cars/car-benz-v-class.png",
     seats: 6,
     luggage: 4,
