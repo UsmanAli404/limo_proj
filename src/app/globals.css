@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    font-family: inherit;
+    scroll-behavior: smooth;
+  }
+
+  body,
+  html {
+    min-height: 100vh;
+  }
+
+  .reservation input {
+    @apply block w-full py-2 px-4 mb-3 font-thin placeholder:text-neutral-600 rounded-[0.6rem] bg-gray-100;
+
+  }
+
+  .nav-link {
+    @apply font-normal text-base text-neutral-500 hover:text-black transition;
+    &.active {
+      @apply text-black;
+    }
+  }
+
+  .banner {
+    background-image: url('./assets/banner-image.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 660px;
+  }
+
+  .service-card button {
+    width: 150px;
+  }
+
+  .tabs button{
+    @apply py-2 px-3 md:px-5 md:mx-2 rounded-[0.5rem] transition-colors duration-200 ease-in-out;
+  }
+  
+  button.active {
+    @apply bg-accent;
+  }
+
+  .slider-card:hover .car {
+    transform: scale(1.04);
+    opacity: 0.9;
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+  }
+
+  ::-webkit-scrollbar {
+      width: 0.6em;
+
+      &-track {
+        @apply bg-neutral-400 rounded-full;
+      }
+
+      &-thumb {
+        @apply bg-neutral-700 rounded-full;
+
+        &:hover {
+          @apply bg-zinc-800;
+        }
+      }
+  }
+
+
+  /* Utility Classes */
+  .container-default {
+    width: min(1200px, 100vw - 2rem);
+    margin-inline: auto;
+  }
+
+  .container-big {
+    width: 95vw;
+    margin-inline: auto;
+  }
+
+  .container-small {
+    width: min(950px, 100vw - 4rem);
+    margin-inline: auto;
+  }
+
+  .shadow-default {
+    box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.1);
+  }
+}
