@@ -5,7 +5,7 @@ import BackToTopButton from '@/components/BackToTopButton';
 import { ReservationContextProvider } from '@/contexts/ReservationContext';
 
 export const metadata = {
-  title: 'Your App',
+  title: 'LIMOO',
   description: 'Your car rental platform',
 };
 
