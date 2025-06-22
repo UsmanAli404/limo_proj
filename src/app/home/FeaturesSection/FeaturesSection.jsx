@@ -1,6 +1,6 @@
-import SectionHeading from "../../../components/SectionHeading";
-import FeatureCard from "./FeatureCard";
-import features from "./features";
+import SectionHeading from '@/components/SectionHeading';
+import FeatureCard from './FeatureCard';
+import features from './features';
 
 const FeaturesSection = () => {
   return (

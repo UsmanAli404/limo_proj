@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const CapacityItem = ({ text, icon }) => {
   return (
     <div className="text-lg bg-zinc-100 px-3 py-1 rounded-[0.4rem]">

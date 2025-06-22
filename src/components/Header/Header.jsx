@@ -1,65 +1,70 @@
-"use client";
+'use client';
 
-import logo from "../../assets/logo-default.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
-import PrimaryNav from "./PrimaryNav";
-import LanguageSelector from "./LanguageSelector";
+import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import PrimaryNav from './PrimaryNav';
+import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
   const screenMd = 800;
 
   const [shadowVisible, setShadowVisible] = useState(false);
   const [navHidden, setNavHidden] = useState(true);
-  const [screenSize, setScreenSize] = useState(0);
-  const [hasMounted, setHasMounted] = useState(false);
+  const [screenSize, setScreenSize] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  );
 
+  // Shadow toggle on scroll
   useEffect(() => {
-    setHasMounted(true);
+    const handleScroll = () => {
+      setShadowVisible(window.scrollY > 50);
+    };
 
-    if (typeof window !== "undefined") {
-      setScreenSize(window.innerWidth);
-
-      const handleResize = () => setScreenSize(window.innerWidth);
-      window.addEventListener("resize", handleResize);
-
-      const handleScroll = () => {
-        setShadowVisible(window.scrollY > 50);
-      };
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Resize handling
   useEffect(() => {
-    if (screenSize >= screenMd) setNavHidden(false);
-    else setNavHidden(true);
-  }, [screenSize]);
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  if (!hasMounted) return null;
+  // Auto-toggle navHidden based on screen size
+  useEffect(() => {
+    setNavHidden(screenSize < screenMd);
+  }, [screenSize]);
 
   return (
     <header
       className={`py-6 fixed z-10 bg-white left-0 right-0 top-0 ${
-        shadowVisible ? "shadow-default" : ""
+        shadowVisible ? 'shadow-default' : ''
       }`}
     >
       <div className="container-big flex justify-between">
-        <a href="/">
-          <img className="w-28" src={logo} alt="LIMO-logo" />
-        </a>
+        <Link href="/">
+          <Image
+            src="/logo-default.png"
+            alt="LIMO-logo"
+            width={112}
+            height={40}
+            className="w-28"
+          />
+        </Link>
+
         <PrimaryNav screenSize={screenSize} navHidden={navHidden} />
+
         {screenSize >= screenMd && <LanguageSelector />}
+
         {screenSize < screenMd && (
           <button onClick={() => setNavHidden(!navHidden)} className="text-lg">
             <FontAwesomeIcon
               icon={navHidden ? faBars : faXmark}
-              style={{ color: "#000000" }}
+              style={{ color: '#000000' }}
             />
           </button>
         )}

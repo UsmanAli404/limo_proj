@@ -1,44 +1,44 @@
-"use client";
+'use client';
 
-import LanguageSelector from "./LanguageSelector";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import LanguageSelector from './LanguageSelector';
 
 const PrimaryNav = ({ navHidden, screenSize }) => {
   const pathname = usePathname();
 
-  const isActive = (path) => pathname === path;
+  const isActive = (path) =>
+    pathname === path ? 'nav-link text-black font-semibold' : 'nav-link';
 
   return (
     <nav
       className={`absolute z-10 rounded-[1rem] shadow-default md:shadow-none top-20 left-4 md:h-full right-4 sm:w-96 sm:right-4 sm:left-auto py-8 text-center md:py-0 bg-white md:bg-transparent md:static ${
-        navHidden && "hidden"
+        navHidden ? 'hidden' : ''
       }`}
     >
       <ul className="flex flex-col md:flex-row gap-16 mb-8 md:mb-0 justify-center">
         <li>
-          <Link href="/" className={`nav-link ${isActive("/") ? "active" : ""}`}>
+          <Link href="/" className={isActive('/')}>
             Home
           </Link>
         </li>
         <li>
-          <Link href="/vehicles" className={`nav-link ${isActive("/vehicles") ? "active" : ""}`}>
+          <Link href="/vehicles" className={isActive('/vehicles')}>
             Vehicles
           </Link>
         </li>
         <li>
-          <Link href="/services" className={`nav-link ${isActive("/services") ? "active" : ""}`}>
+          <Link href="/services" className={isActive('/services')}>
             Services
           </Link>
         </li>
         <li>
-          <a className="nav-link" href="#">
+          <a href="#contact" className="nav-link">
             Contact
           </a>
         </li>
       </ul>
 
-      {/* Show LanguageSelector below nav items on small screens */}
       {screenSize < 800 && <LanguageSelector />}
     </nav>
   );

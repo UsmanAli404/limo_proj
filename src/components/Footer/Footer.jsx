@@ -1,40 +1,42 @@
-import logoFooter from "../../assets/logo-footer.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+'use client';
+
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitter,
   faFacebook,
   faInstagram,
   faLinkedin,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import FooterNewsLetter from "./FooterNewsLetter";
-import FooterLinkColumn from "./FooterLinkColumn";
-import FooterLink from "./FooterLink";
+} from '@fortawesome/free-brands-svg-icons';
+import FooterNewsLetter from './FooterNewsLetter';
+import FooterLinkColumn from './FooterLinkColumn';
+import FooterLink from './FooterLink';
 
 const Footer = () => {
   const linkCols = [
     {
-      title: "Top cities",
-      links: ["New York", "London", "Berlin", "Los Angeles", "Paris"],
+      title: 'Top cities',
+      links: ['New York', 'London', 'Berlin', 'Los Angeles', 'Paris'],
     },
     {
-      title: "Explore",
+      title: 'Explore',
       links: [
-        "Intercity rides",
-        "Limousine service",
-        "Chauffeur service",
-        "Private car service",
-        "Airport transfers",
+        'Intercity rides',
+        'Limousine service',
+        'Chauffeur service',
+        'Private car service',
+        'Airport transfers',
       ],
     },
     {
-      title: "Intercity rides",
+      title: 'Intercity rides',
       links: [
-        "East Hampton - New York",
-        "New York - Washington",
-        "New York - Philadelphia",
-        "Abu Dhabi - Dubai",
-        "London - Birmingham",
+        'East Hampton - New York',
+        'New York - Washington',
+        'New York - Philadelphia',
+        'Abu Dhabi - Dubai',
+        'London - Birmingham',
       ],
     },
   ];
@@ -51,10 +53,12 @@ const Footer = () => {
     <footer className="container-big text-center md:text-left bg-neutral-800 text-sm font-light text-white rounded-[1.5rem] flex flex-col items-center md:block mt-20 mb-[2.5vw] py-12 md:px-20">
       <div className="flex flex-col md:flex-row gap-8 md:justify-between mb-12">
         <div>
-          <img
-            className="w-28 mb-16 mx-auto md:mx-0"
-            src={logoFooter}
+          <Image
+            src="/logo-footer.png"
+            width={112}
+            height={40}
             alt="logo"
+            className="w-28 mb-16 mx-auto md:mx-0"
           />
           <FooterNewsLetter />
         </div>
@@ -70,10 +74,10 @@ const Footer = () => {
         <p className="font-medium mb-2">&copy; 2023 LIMOS</p>
 
         <ul className="bottom-links flex flex-col md:flex-row gap-4 text-neutral-400 font-normal">
-          <FooterLink link={"#"}>Terms</FooterLink>
-          <FooterLink link={"#"}>Privacy policy</FooterLink>
-          <FooterLink link={"#"}>Legal notice</FooterLink>
-          <FooterLink link={"#"}>Accessibility</FooterLink>
+          <FooterLink link="#">Terms</FooterLink>
+          <FooterLink link="#">Privacy policy</FooterLink>
+          <FooterLink link="#">Legal notice</FooterLink>
+          <FooterLink link="#">Accessibility</FooterLink>
         </ul>
 
         <ul className="social-links text-2xl flex gap-6">

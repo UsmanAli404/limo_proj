@@ -1,9 +1,13 @@
+'use client';
+
+import Link from 'next/link';
+
 const FooterLink = ({ link, children }) => {
   return (
     <li className="mb-2">
-      <a className="hover:text-white transition" href={link}>
+      <Link href={link} className="hover:text-white transition">
         {children}
-      </a>
+      </Link>
     </li>
   );
 };

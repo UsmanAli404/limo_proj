@@ -1,25 +1,30 @@
+import ImgAirport from "../assets/image-airport-transfers.png";
+import ImgIntercity from "../assets/image-intercity-trips.png";
+import ImgWedding from "../assets/image-wedding-events.png";
+import ImgBusiness from "../assets/image-business-meeting.png";
+
 const services = [
   {
     id: 1,
-    image: "/services/image-airport-transfers.png",
+    image: ImgAirport,
     heading: "Airport transfers",
     text: "With additional wait time and flight tracking in case of delays, our service is optimized to make every airport transfer a breeze.",
   },
   {
     id: 2,
-    image: "/services/image-intercity-trips.png",
+    image: ImgIntercity,
     heading: "Intercity trips",
     text: "Your stressfree solution for traveling between cities with chauffeurs all over the world.",
   },
   {
     id: 3,
-    image: "/services/image-wedding-events.png",
+    image: ImgWedding,
     heading: "Wedding events",
     text: "Our friendly, and attentive service combined with thorough attention to detail ensure you can truly relax and enjoy your special day.",
   },
   {
     id: 4,
-    image: "/services/image-business-meeting.png",
+    image: ImgBusiness,
     heading: "Business meeting",
     text: "Focus on your meeting with your partners, forget about the road and the car, which will distract your thoughts.",
   },

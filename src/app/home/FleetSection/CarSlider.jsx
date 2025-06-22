@@ -1,10 +1,14 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import cars from "../../../data/cars";
-import SliderCard from "../../../components/SliderCard";
-import { useEffect } from "react";
-import Aos from "aos";
-import "aos/dist/aos.css";
+'use client';
+
+import { useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+
+import cars from '@/data/cars';
+import SliderCard from '@/components/SliderCard';
+
 const CarSlider = ({ activeTab, setSelectedVehicle }) => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -12,7 +16,6 @@ const CarSlider = ({ activeTab, setSelectedVehicle }) => {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 4,
       partialVisibilityGutter: 40,
@@ -35,8 +38,24 @@ const CarSlider = ({ activeTab, setSelectedVehicle }) => {
   };
 
   const chooseVehicle = (name) => {
-    setSelectedVehicle(cars.find((car) => car.name === name));
+    const selected = cars.find((car) => car.name === name);
+    setSelectedVehicle(selected);
   };
+
+  const filteredCars = cars.filter((car) => {
+    switch (activeTab) {
+      case 1:
+        return true;
+      case 2:
+        return car.type.includes('luxury');
+      case 3:
+        return car.type.includes('business');
+      case 4:
+        return car.type.includes('crossover');
+      default:
+        return true;
+    }
+  });
 
   return (
     <div className="md:pl-16" data-aos="fade-left">
@@ -47,28 +66,14 @@ const CarSlider = ({ activeTab, setSelectedVehicle }) => {
         swipeable={true}
         draggable={true}
       >
-        {/* filtering the car list based on the tab */}
-        {cars
-          .filter((car) => {
-            switch (activeTab) {
-              case 1:
-                return true;
-              case 2:
-                return car.type.includes("luxury");
-              case 3:
-                return car.type.includes("business");
-              case 4:
-                return car.type.includes("crossover");
-            }
-          })
-          .map((car, i) => (
-            <SliderCard
-              {...car}
-              index={i}
-              key={car.id}
-              chooseVehicle={chooseVehicle}
-            />
-          ))}
+        {filteredCars.map((car, i) => (
+          <SliderCard
+            {...car}
+            index={i}
+            key={car.id}
+            chooseVehicle={chooseVehicle}
+          />
+        ))}
       </Carousel>
     </div>
   );

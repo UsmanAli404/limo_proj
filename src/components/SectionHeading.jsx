@@ -1,3 +1,5 @@
+'use client';
+
 const SectionHeading = ({ title, text }) => {
   return (
     <div className="mb-16 text-center space-y-4 md:space-y-0 md:flex md:space-x-16 justify-center items-center">

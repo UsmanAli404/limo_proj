@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import BannerSection from "./BannerSection/BannerSection";
-import FeaturedSection from "./FeaturedSection/FeaturedSection";
-import FeaturesSection from "./FeaturesSection/FeaturesSection";
-import FleetSection from "./FleetSection/FleetSection";
-import ServicesSection from "./ServicesSection/ServicesSection";
+import { useEffect } from 'react';
+import BannerSection from './BannerSection/BannerSection';
+import FeaturedSection from './FeaturedSection/FeaturedSection';
+import FeaturesSection from './FeaturesSection/FeaturesSection';
+import FleetSection from './FleetSection/FleetSection';
+import ServicesSection from './ServicesSection/ServicesSection';
 
-const Home = ({ scrollUp, setSelectedVehicle }) => {
+const HomePage = () => {
   useEffect(() => {
-    scrollUp();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
     <>
       <BannerSection />
-      <ServicesSection />
-      <FleetSection setSelectedVehicle={setSelectedVehicle} />
       <FeaturesSection />
+      <ServicesSection />
+      <FleetSection />
       <FeaturedSection />
     </>
   );
 };
 
-export default Home;
+export default HomePage;

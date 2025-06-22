@@ -1,7 +1,9 @@
-import { useState } from "react";
-import SectionHeading from "../../../components/SectionHeading";
-import CarSlider from "./CarSlider";
-import Tabs from "./Tabs";
+'use client';
+
+import { useState } from 'react';
+import SectionHeading from '@/components/SectionHeading';
+import CarSlider from './CarSlider';
+import Tabs from './Tabs';
 
 const FleetSection = ({ setSelectedVehicle }) => {
   const [activeTab, setActiveTab] = useState(1);
