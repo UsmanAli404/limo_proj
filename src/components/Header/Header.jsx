@@ -45,7 +45,8 @@ const Header = () => {
         shadowVisible ? 'shadow-default' : ''
       }`}
     >
-      <div className="container-big flex justify-between">
+      <div className="container mx-auto px-4 flex justify-between">
+
         <Link href="/">
           <Image
             src="/logo-default.png"
