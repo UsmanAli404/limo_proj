@@ -81,7 +81,7 @@ const ReservationCard = () => {
         time: reservationInfo.time,
         contactNo: reservationInfo.contactNo,
       },
-      "GLuCpQdPfo7-bSxHd"     
+      "nDc1bgGPlprzJBOmy"     
     )
     .then((result) => {
       console.log("Email sent successfully:", result.text);
@@ -138,33 +138,39 @@ const ReservationCard = () => {
       />
       {errors.numPassengers && <p className="text-red-500 text-xs mb-2">Enter a number between 1–20.</p>}
 
-      <input
-        onFocus={() => setFocusedField("date")}
-        onBlur={() => setFocusedField(null)}
-        onChange={(e) => {
-          handleInput(e);
-          validateField("date", e.target.value);
-        }}
-        value={reservationInfo.date}
-        name="date"
-        type="date"
-        min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
-        className={`w-full mb-3 rounded-[0.6rem] py-2 px-4 ${errors.date ? 'border border-red-500' : 'border-none'}`}
-      />
+       <div className="mb-3">
+        {focusedField === "date" && (
+          <label className="block text-sm text-gray-600 mb-1">Pick Up Date</label>
+        )}
+        <input
+          onFocus={() => setFocusedField("date")}
+          onBlur={() => setFocusedField(null)}
+          onChange={handleInput}
+          value={reservationInfo.date}
+          name="date"
+          type="date"
+          id="date"
+           min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
+          className="w-full rounded-[0.6rem] py-2 px-4 border-none"
+        />
+      </div>
       {errors.date && <p className="text-red-500 text-xs mb-2">Date is required.</p>}
 
-      <input
-        onFocus={() => setFocusedField("time")}
-        onBlur={() => setFocusedField(null)}
-        onChange={(e) => {
-          handleInput(e);
-          validateField("time", e.target.value);
-        }}
-        value={reservationInfo.time}
-        name="time"
-        type="time"
-        className={`w-full mb-3 rounded-[0.6rem] py-2 px-4 ${errors.time ? 'border border-red-500' : 'border-none'}`}
-      />
+      <div className="mb-3">
+        {focusedField === "time" && (
+          <label className="block text-sm text-gray-600 mb-1">Pick Up Time</label>
+        )}
+        <input
+          onFocus={() => setFocusedField("time")}
+          onBlur={() => setFocusedField(null)}
+          onChange={handleInput}
+          value={reservationInfo.time}
+          name="time"
+          type="time"
+          id="time"
+          className="w-full rounded-[0.6rem] py-2 px-4 border-none"
+        />
+      </div>
       {errors.time && <p className="text-red-500 text-xs mb-2">Time is required.</p>}
 
       <input
