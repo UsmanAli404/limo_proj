@@ -7,15 +7,20 @@ import ReservationCard from './ReservationCard';
 const BannerSection = () => {
   return (
    <div className="banner relative container-big rounded-[1.5rem] text-center mt-24 space-y-4 md:space-y-6">
-      <h1 className="text-5xl md:text-8xl font-semibold pt-8 tracking-wide">
+      <h1 className="
+        font-semibold tracking-wide pt-6 text-3xl
+        sm:text-4xl
+        md:text-5xl
+        lg:text-8xl lg:pt-8
+      ">
         Luxury Limo Hires
       </h1>
-      <p className="md:w-[42ch] mx-auto mb-8">
+      <p className="sm:w-[42ch] mx-10 sm:mx-auto mb-6">
         We offer professional car rental & limousine services in our range of high-end vehicles
       </p>
 
       <Link href="/vehicles">
-        <Button>Open Fleet</Button>
+        <Button className=''>Open Fleet</Button>
       </Link>
 
       <ReservationCard />

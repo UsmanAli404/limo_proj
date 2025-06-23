@@ -52,13 +52,13 @@ const Footer = () => {
   return (
     <footer className="container-big text-center md:text-left bg-neutral-800 text-sm font-light text-white rounded-[1.5rem] flex flex-col items-center md:block mt-20 mb-[2.5vw] py-12 md:px-20">
       <div className="flex flex-col md:flex-row gap-8 md:justify-between mb-12">
-        <div>
+        <div className='flex flex-col justify-center items-center'>
           <Image
-            src="/logo-footer.png"
+            src="/logo-footer.svg"
             width={112}
             height={40}
             alt="logo"
-            className="w-28 mb-16 mx-auto md:mx-0"
+            className="w-28 mx-auto md:mx-0"
           />
           <FooterNewsLetter />
         </div>
@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between items-center">
-        <p className="font-medium mb-2">&copy; 2025 LIMOS</p>
+        <p className="font-medium mb-2">&copy; 2025 Long Island Limo</p>
 
         <ul className="bottom-links flex flex-col md:flex-row gap-4 text-neutral-400 font-normal">
           <FooterLink link="#">Terms</FooterLink>

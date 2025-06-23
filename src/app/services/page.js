@@ -1,6 +1,6 @@
 function ServicesPage(){
     return (
-        <div className="services-page px-4 py-8">
+        <div className="services-page px-4 py-15">
         <h1>Our Services</h1>
        <p>ServicesPage
        </p>

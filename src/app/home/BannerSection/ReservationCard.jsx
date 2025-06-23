@@ -94,10 +94,15 @@ const ReservationCard = () => {
   };
 
   return (
-    <form className="reservation reserve-card w-[320px] p-8 pt-[4.5rem] absolute bottom-8 right-16 shadow-lg bg-white rounded-[1.5rem] text-left text-[15px]">
-      <div className="absolute top-4 left-0 right-0 flex justify-center items-center px-3 gap-4 text-lg font-medium">
-        <p>Book Now</p>
-      </div>
+    <form className="
+      reservation w-[320px] p-8
+      absolute left-1/2 bottom-5 -translate-x-1/2
+      lg:left-auto lg:right-5 lg:translate-x-0
+      shadow-lg bg-white rounded-[1.5rem] text-left text-[15px]
+      transition-all duration-500 ease-in-out
+    ">
+
+      <p className="text-center text-lg font-medium mb-3">Book Now</p>
 
       <input
         onChange={(e) => {

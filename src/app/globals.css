@@ -6,8 +6,6 @@
   --foreground: #fbfbfb;
 }
 
-
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
@@ -25,14 +23,14 @@ body {
 .reservation input {
   display: block;
   width: 100%;
-  padding-top: 0.5rem;    /* py-2 = 0.5rem */
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  padding-left: 1rem;     /* px-4 = 1rem */
+  padding-left: 1rem;
   padding-right: 1rem;
-  margin-bottom: 0.75rem; /* mb-3 = 0.75rem */
-  font-weight: 100;       /* font-thin */
+  margin-bottom: 0.75rem;
+  font-weight: 100;
   border-radius: 0.6rem;
-  background-color: #f3f4f6; /* bg-gray-100 */
+  background-color: #f3f4f6;
 }
 
 .reservation input::placeholder {
@@ -44,5 +42,5 @@ body {
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
-    height: 660px;
+    height: 700px;
   }
