@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import LanguageSelector from './LanguageSelector';
 
 const PrimaryNav = ({ navHidden, screenSize }) => {
   const pathname = usePathname();
@@ -38,8 +37,6 @@ const PrimaryNav = ({ navHidden, screenSize }) => {
           </a>
         </li>
       </ul>
-
-      {screenSize < 800 && <LanguageSelector />}
     </nav>
   );
 };
