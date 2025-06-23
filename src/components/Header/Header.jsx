@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faL, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useRef, useState } from 'react';
 import PrimaryNav from './PrimaryNav';
 
 const Header = () => {
@@ -15,6 +15,8 @@ const Header = () => {
   const [screenSize, setScreenSize] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 1024
   );
+
+  const toggleButtonRef = useRef(null); // for outside click ignore
 
   // Shadow toggle on scroll
   useEffect(() => {
@@ -33,6 +35,7 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Reset nav visibility on resize
   useEffect(() => {
     setNavHidden(screenSize < screenMd);
   }, [screenSize]);
@@ -43,8 +46,7 @@ const Header = () => {
         shadowVisible ? 'shadow-lg' : ''
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between">
-
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/">
           <Image
             src="/logo-default.svg"
@@ -55,15 +57,23 @@ const Header = () => {
           />
         </Link>
 
-        <PrimaryNav screenSize={screenSize} setNavHidden={setNavHidden} navHidden={navHidden} />
+        <PrimaryNav
+          screenSize={screenSize}
+          setNavHidden={setNavHidden}
+          navHidden={navHidden}
+          toggleButtonRef={toggleButtonRef} // pass ref
+        />
 
         {screenSize < screenMd && (
-          <button onClick={(e) => {
-            console.log(`pre: ${navHidden}, post: ${!navHidden}`);
-              if(navHidden===true){
-                setNavHidden(false);
-              }
-            }} className="text-lg">
+          <button
+            ref={toggleButtonRef}
+            onClick={(e) => {
+              e.stopPropagation(); // prevent bubbling
+              setNavHidden((prev) => !prev);
+              console.log(`toggled nav: ${!navHidden}`);
+            }}
+            className="text-lg"
+          >
             <FontAwesomeIcon
               icon={navHidden ? faBars : faXmark}
               style={{ color: '#000000' }}

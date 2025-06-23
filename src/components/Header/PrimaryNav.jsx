@@ -4,35 +4,39 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef, useEffect } from 'react';
 
-const PrimaryNav = ({ navHidden, setNavHidden, screenSize }) => {
+const PrimaryNav = ({ navHidden, setNavHidden, screenSize, toggleButtonRef }) => {
   const pathname = usePathname();
+  const navRef = useRef(null);
 
   const isActive = (path) =>
     pathname === path ? 'nav-link text-black font-semibold' : 'nav-link';
 
-  const navRef = useRef(null);
   useEffect(() => {
     const handleClickOutside = (e) => {
-      e.stopPropagation();
-      if (navRef.current && !navRef.current.contains(e.target) && !navHidden) {
-        console.log(`pre: ${navHidden}, post: true`);
+      if (
+        navRef.current &&
+        !navRef.current.contains(e.target) &&
+        (!toggleButtonRef.current || !toggleButtonRef.current.contains(e.target)) &&
+        !navHidden
+      ) {
+        console.log(`Clicked outside: closing nav`);
         setNavHidden(true);
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [navHidden]);
+  }, [navHidden, setNavHidden, toggleButtonRef]);
 
   return (
     <nav
       ref={navRef}
-      className={` 
+      className={`
         absolute z-10 left-0 right-0 top-18
         md:h-full md:static
         py-8 text-center md:py-0
         bg-white md:bg-transparent
-        rounded-b-[1rem] rounded-t-none
+        rounded-b-[1rem] md:rounded-none
         shadow-lg md:shadow-none
         transition-all duration-300 ease-in-out transform
         ${navHidden ? 'opacity-0 -translate-y-4 scale-95 pointer-events-none' : 'opacity-100 translate-y-0 scale-100'}
@@ -55,7 +59,7 @@ const PrimaryNav = ({ navHidden, setNavHidden, screenSize }) => {
           </Link>
         </li>
         <li>
-         <Link href="/contact" className={isActive('/contact')} onClick={() => setNavHidden(true)}>
+          <Link href="/contact" className={isActive('/contact')} onClick={() => setNavHidden(true)}>
             Contact
           </Link>
         </li>
