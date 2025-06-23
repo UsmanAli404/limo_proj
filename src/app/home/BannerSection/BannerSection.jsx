@@ -6,7 +6,7 @@ import ReservationCard from './ReservationCard';
 
 const BannerSection = () => {
   return (
-    <div className="banner relative container-big rounded-[1.5rem] text-center mt-24">
+   <div className="banner relative container-big rounded-[1.5rem] text-center mt-24 space-y-4 md:space-y-6">
       <h1 className="text-5xl md:text-8xl font-semibold pt-8 tracking-wide">
         Luxury Limo Hires
       </h1>

@@ -18,9 +18,7 @@ const SliderCard = ({ index, image, name, seats, luggage, chooseVehicle }) => {
         className={`slider-card mx-2 pb-8 cursor-pointer`}
       >
         <div
-          className={`car-image w-full h-[290px] flex items-center justify-center ${
-            index === 0 ? 'bg-accent/20' : 'bg-zinc-100'
-          } rounded-[1.5rem] hover:shadow-md px-8`}
+          className={`car-image w-full h-[290px] flex items-center justify-center bg-zinc-100 rounded-[1.5rem] hover:shadow-md px-8`}
         >
           <Image
             src={image}

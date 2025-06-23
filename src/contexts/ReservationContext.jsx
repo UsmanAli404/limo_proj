@@ -8,8 +8,10 @@ export const ReservationContextProvider = ({ children }) => {
   const [reservationInfo, setReservationInfo] = useState({
     pickup: '',
     dropoff: '',
+    numPassengers: '',
     date: '',
     time: '',
+    contactNo: ''
   });
 
   const handleInput = (e) => {

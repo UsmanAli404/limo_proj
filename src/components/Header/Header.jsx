@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import PrimaryNav from './PrimaryNav';
-import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
   const screenMd = 800;
@@ -42,7 +41,7 @@ const Header = () => {
   return (
     <header
       className={`py-6 fixed z-10 bg-white left-0 right-0 top-0 ${
-        shadowVisible ? 'shadow-default' : ''
+        shadowVisible ? 'shadow-lg' : ''
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between">
@@ -58,8 +57,6 @@ const Header = () => {
         </Link>
 
         <PrimaryNav screenSize={screenSize} navHidden={navHidden} />
-
-        {screenSize >= screenMd && <LanguageSelector />}
 
         {screenSize < screenMd && (
           <button onClick={() => setNavHidden(!navHidden)} className="text-lg">
