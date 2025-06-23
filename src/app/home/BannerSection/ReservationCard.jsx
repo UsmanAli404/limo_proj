@@ -125,7 +125,7 @@ const ReservationCard = () => {
           className={`w-full rounded-[0.6rem] py-2 px-4 ${errors.contactNo ? 'border border-red-500' : 'border-none'}`}
         />
         {errors.contactNo && (
-          <p className="text-red-500 text-xs mt-1">Please enter a valid contact number (10–15 digits).</p>
+          <p className="text-red-500 text-xs mt-1">Please enter a valid contact number (10-15 digits).</p>
         )}
       </div>
 
