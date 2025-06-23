@@ -15,7 +15,7 @@ const BannerSection = () => {
       ">
         Luxury Limo Hires
       </h1>
-      <p className="sm:w-[42ch] mx-10 sm:mx-auto mb-6">
+      <p className="sm:w-[42ch] mx-10 sm:mx-auto mb-2 sm:mb-6">
         We offer professional car rental & limousine services in our range of high-end vehicles
       </p>
 

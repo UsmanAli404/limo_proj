@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faL, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import PrimaryNav from './PrimaryNav';
 
@@ -33,7 +33,6 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto-toggle navHidden based on screen size
   useEffect(() => {
     setNavHidden(screenSize < screenMd);
   }, [screenSize]);
@@ -56,10 +55,15 @@ const Header = () => {
           />
         </Link>
 
-        <PrimaryNav screenSize={screenSize} navHidden={navHidden} />
+        <PrimaryNav screenSize={screenSize} setNavHidden={setNavHidden} navHidden={navHidden} />
 
         {screenSize < screenMd && (
-          <button onClick={() => setNavHidden(!navHidden)} className="text-lg">
+          <button onClick={(e) => {
+            console.log(`pre: ${navHidden}, post: ${!navHidden}`);
+              if(navHidden===true){
+                setNavHidden(false);
+              }
+            }} className="text-lg">
             <FontAwesomeIcon
               icon={navHidden ? faBars : faXmark}
               style={{ color: '#000000' }}
