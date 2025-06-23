@@ -32,9 +32,9 @@ const PrimaryNav = ({ navHidden, screenSize }) => {
           </Link>
         </li>
         <li>
-          <a href="#contact" className="nav-link">
+         <Link href="/contact" className={isActive('/contact')}>
             Contact
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
