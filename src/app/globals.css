@@ -40,7 +40,7 @@ body {
 }
 
 .banner {
-    background-image: url('../../public/cars/banner-image.jpg');
+    background-image: url('../../public/cars/banner-image.webp');
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;

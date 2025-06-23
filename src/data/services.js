@@ -1,25 +1,25 @@
 const services = [
   {
     id: 1,
-    image: "/services/image-airport-transfers.png",
+    image: "/services/image-airport-transfers.webp",
     heading: "Airport transfers",
     text: "With additional wait time and flight tracking in case of delays, our service is optimized to make every airport transfer a breeze.",
   },
   {
     id: 2,
-    image: "/services/image-intercity-trips.png",
+    image: "/services/image-intercity-trips.webp",
     heading: "Intercity trips",
     text: "Your stressfree solution for traveling between cities with chauffeurs all over the world.",
   },
   {
     id: 3,
-    image: "/services/image-wedding-events.png",
+    image: "/services/image-wedding-events.webp",
     heading: "Wedding events",
     text: "Our friendly, and attentive service combined with thorough attention to detail ensure you can truly relax and enjoy your special day.",
   },
   {
     id: 4,
-    image: "/services/image-business-meeting.png",
+    image: "/services/image-business-meeting.webp",
     heading: "Business meeting",
     text: "Focus on your meeting with your partners, forget about the road and the car, which will distract your thoughts.",
   },

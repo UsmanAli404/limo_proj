@@ -54,7 +54,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row gap-8 md:justify-between mb-12">
         <div>
           <Image
-            src="/logo-footer.png"
+            src="/logo-footer.webp"
             width={112}
             height={40}
             alt="logo"

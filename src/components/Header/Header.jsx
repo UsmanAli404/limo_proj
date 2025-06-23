@@ -48,7 +48,7 @@ const Header = () => {
 
         <Link href="/">
           <Image
-            src="/logo-default.png"
+            src="/logo-default.webp"
             alt="LIMO-logo"
             width={112}
             height={40}

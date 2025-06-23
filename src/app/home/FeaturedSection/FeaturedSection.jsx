@@ -40,7 +40,7 @@ const FeaturedSection = () => {
         </Link>
 
         <Image
-          src="/cars/car-cadillac-escalade.png"
+          src="/cars/car-cadillac-escalade.webp"
           alt="featured-vehicle"
           width={620}
           height={400}
