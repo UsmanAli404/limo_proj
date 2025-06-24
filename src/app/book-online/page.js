@@ -66,7 +66,7 @@ const Reservation = () => {
         priority
       />
 
-      {/* Optional overlay (very light for readability) */}
+      {/* Optional overlay (very light for readabiadlity) */}
       <div className="absolute inset-0 bg-black/10 z-0" />
 
       {/* Transparent Form Container */}
