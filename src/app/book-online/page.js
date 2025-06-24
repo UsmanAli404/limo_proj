@@ -69,21 +69,16 @@ const Reservation = () => {
       <div className="absolute inset-0 bg-black/10 rounded-3xl"  />
     </div>
 
-<<<<<<< HEAD:src/app/reservation/page.js
     {/* Right: Form */}
     <div className="bg-white text-black p-8 md:p-12 flex flex-col justify-center">
       <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center text-neutral-700">
         Reservation
       </h1>
-=======
-      {/* Optional overlay (very light for readabiadlity) */}
-      <div className="absolute inset-0 bg-black/10 z-0" />
->>>>>>> muteeb:src/app/book-online/page.js
 
       <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {[
           { name: "name", label: "Full Name", type: "text", placeholder: "Your Full Name" },
-          { name: "cellphone", label: "Phone", type: "tel", placeholder: "03XX-XXXXXXX" },
+          { name: "cellphone", label: "Phone", type: "tel", placeholder: "+1 (111) 111-1111" },
           { name: "email", label: "Email", type: "email", placeholder: "example@mail.com" },
           { name: "numPassengers", label: "No. of Passengers", type: "number", placeholder: "e.g. 4" },
           { name: "pickup", label: "Pick Up", type: "text", placeholder: "Pick Up Address" },
