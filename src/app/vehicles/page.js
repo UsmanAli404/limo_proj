@@ -1,10 +1,86 @@
-function vehiclesPage() {
+'use client';
+
+import { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/navigation";
+import cars from "@/data/cars";
+import SliderCard from "@/components/SliderCard";
+import Button from "@/components/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
+import { ReservationContext } from "@/contexts/ReservationContext"; // 
+
+const Vehicles = () => {
+  const [filter, setFilter] = useState("1");
+  const [selectedVehicle, setSelectedVehicle] = useState(cars[0]);
+
+  const { setSelectedVehicle: setContextVehicle } = useContext(ReservationContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const chooseVehicle = (name) => {
+    setSelectedVehicle(cars.find((car) => car.name === name));
+  };
+
+  const handleBookNow = () => {
+    setContextVehicle(selectedVehicle); // Store in context
+    router.push("/reservation");        // Navigate
+  };
+
   return (
-    <div className="px-4 py-15">
-      <h1>Vehicles Page</h1>
-      <p>This is the vehicles page.</p>
+    <div className="container-default text-center md:text-left mt-28 py-8 px-20">
+      <h1 className="text-5xl md:text-7xl font-semibold">Vehicles</h1>
+      <p className="md:w-2/3 text-zinc-600">
+        We offer a variety of luxurious vehicles for you to Choose...
+      </p>
+
+      <div className="grid md:grid-cols-2 gap-12 my-16">
+        <div className="bg-accent/40 p-4 rounded-[1rem] flex items-center">
+          <img className="w-full" src={selectedVehicle.image} alt="" />
+        </div>
+        <div className="mt-4">
+          <h2 className="text-4xl font-semibold">{selectedVehicle.name}</h2>
+          <p className="text-zinc-600 mt-4">{selectedVehicle.detail}</p>
+          <hr className="mt-4" />
+          <h3 className="mt-8 text-2xl font-medium">Capacity</h3>
+          <p className="mt-1">Luggage: <span className="font-medium">{selectedVehicle.luggage}</span></p>
+          <p className="mt-1 mb-12">Seats: <span className="font-medium">{selectedVehicle.seats}</span></p>
+          
+          <Button onClick={handleBookNow}>
+            Book Now
+            <FontAwesomeIcon icon={faArrowRight} className="text-white ml-4" />
+          </Button>
+        </div>
+      </div>
+
+      <h2 className="text-4xl font-semibold mb-6">Other Cars</h2>
+      <label className="ml-2" htmlFor="filter">Filter By:</label>
+      <select
+        className="rounded-[0.4rem] border-2 border-zinc-400 py-1 px-4 ml-2 mb-8"
+        onChange={(e) => setFilter(e.target.value)}
+        value={filter}
+      >
+        <option value="1">All</option>
+        <option value="2">Luxury</option>
+        <option value="3">Business</option>
+        <option value="4">Crossover</option>
+      </select>
+
+      <div className="grid sm:grid-cols-2 md:grid-cols-3">
+        {cars
+          .filter((car) => {
+            if (filter === "1") return true;
+            return car.type.includes(filter === "2" ? "luxury" : filter === "3" ? "business" : "crossover");
+          })
+          .map((car, i) => (
+            <SliderCard {...car} key={i} chooseVehicle={chooseVehicle} />
+          ))}
+      </div>
     </div>
   );
-}   
+};
 
-export default vehiclesPage;
+export default Vehicles;

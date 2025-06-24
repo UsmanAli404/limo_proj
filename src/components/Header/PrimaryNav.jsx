@@ -2,67 +2,66 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-const PrimaryNav = ({ navHidden, setNavHidden, screenSize, toggleButtonRef }) => {
+const PrimaryNav = ({ navOpen, setNavOpen, isMobile, toggleButtonRef }) => {
   const pathname = usePathname();
   const navRef = useRef(null);
 
   const isActive = (path) =>
     pathname === path ? 'nav-link text-black font-semibold' : 'nav-link';
 
+  // Close nav on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
+        navOpen &&
         navRef.current &&
         !navRef.current.contains(e.target) &&
-        (!toggleButtonRef.current || !toggleButtonRef.current.contains(e.target)) &&
-        !navHidden
+        (!toggleButtonRef.current || !toggleButtonRef.current.contains(e.target))
       ) {
-        console.log(`Clicked outside: closing nav`);
-        setNavHidden(true);
+        setNavOpen(false);
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [navHidden, setNavHidden, toggleButtonRef]);
+  }, [navOpen, setNavOpen, toggleButtonRef]);
+
+  // Close nav on route change
+  useEffect(() => {
+    setNavOpen(false);
+  }, [pathname]);
 
   return (
     <nav
       ref={navRef}
       className={`
-        absolute z-10 left-0 right-0 top-18
-        md:h-full md:static
-        py-8 text-center md:py-0
+        absolute z-40 left-0 right-0 top-20
+        md:static md:z-auto
+        py-8 md:py-0
+        text-center md:text-left
         bg-white md:bg-transparent
-        rounded-b-[1rem] md:rounded-none
+        rounded-b-xl md:rounded-none
         shadow-lg md:shadow-none
-        transition-all duration-300 ease-in-out transform
-        ${navHidden ? 'opacity-0 -translate-y-4 scale-95 pointer-events-none' : 'opacity-100 translate-y-0 scale-100'}
+        transition-all duration-300 ease-in-out
+        transform
+        ${isMobile ? (navOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none') : ''}
       `}
     >
-      <ul className="flex flex-col md:flex-row gap-16 mb-8 md:mb-0 justify-center">
-        <li>
-          <Link href="/" className={isActive('/')} onClick={() => setNavHidden(true)}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href="/vehicles" className={isActive('/vehicles')} onClick={() => setNavHidden(true)}>
-            Vehicles
-          </Link>
-        </li>
-        <li>
-          <Link href="/services" className={isActive('/services')} onClick={() => setNavHidden(true)}>
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact" className={isActive('/contact')} onClick={() => setNavHidden(true)}>
-            Contact
-          </Link>
-        </li>
+      <ul className="flex flex-col md:flex-row gap-10 md:gap-8 justify-center md:justify-end items-center">
+        {[
+          { name: 'Home', path: '/' },
+          { name: 'Our Fleet', path: '/vehicles' },
+          { name: 'Services', path: '/services' },
+          { name: 'Contact', path: '/contact' },
+        ].map(({ name, path }) => (
+          <li key={path}>
+            <Link href={path} className={isActive(path)}>
+              {name}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

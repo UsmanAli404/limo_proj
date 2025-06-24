@@ -1,11 +1,11 @@
-// contexts/ReservationContext.js
+// contexts/ReservationFormContext.js
 'use client';
 
 import { createContext, useState } from 'react';
 
-export const ReservationContext = createContext(null);
+export const ReservationFormContext = createContext(null);
 
-export const ReservationContextProvider = ({ children }) => {
+export const ReservationFormContextProvider = ({ children }) => {
   const [reservation, setReservation] = useState({
     name: '',
     cellphone: '',
@@ -19,7 +19,7 @@ export const ReservationContextProvider = ({ children }) => {
     specialRequest: '',
   });
 
-  const handleInput = (e) => {
+  const handleReservationInput = (e) => {
     const { name, value } = e.target;
     setReservation((prev) => ({
       ...prev,
@@ -27,7 +27,7 @@ export const ReservationContextProvider = ({ children }) => {
     }));
   };
 
-  const setSelectedVehicle = (vehicleObj) => {
+  const setVehicle = (vehicleObj) => {
     setReservation((prev) => ({
       ...prev,
       vehicle: vehicleObj,
@@ -35,10 +35,10 @@ export const ReservationContextProvider = ({ children }) => {
   };
 
   return (
-    <ReservationContext.Provider
-      value={{ reservationInfo: reservation, handleInput, selectedVehicle: reservation.vehicle, setSelectedVehicle }}
+    <ReservationFormContext.Provider
+      value={{ reservation, handleReservationInput, setVehicle }}
     >
       {children}
-    </ReservationContext.Provider>
+    </ReservationFormContext.Provider>
   );
 };

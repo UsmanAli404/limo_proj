@@ -11,38 +11,35 @@ const Header = () => {
   const screenMd = 800;
 
   const [shadowVisible, setShadowVisible] = useState(false);
-  const [navHidden, setNavHidden] = useState(true);
-  const [screenSize, setScreenSize] = useState(
-    typeof window !== 'undefined' ? window.innerWidth : 1024
-  );
+  const [isMobile, setIsMobile] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
-  const toggleButtonRef = useRef(null); // for outside click ignore
+  const toggleButtonRef = useRef(null);
 
-  // Shadow toggle on scroll
+  // Handle scroll shadow
   useEffect(() => {
     const handleScroll = () => {
       setShadowVisible(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Resize handling
+  // Handle screen resize
   useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth);
+    const handleResize = () => {
+      const mobile = window.innerWidth < screenMd;
+      setIsMobile(mobile);
+      if (!mobile) setNavOpen(false); // Close nav when resizing to desktop
+    };
+    handleResize(); // initial check
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Reset nav visibility on resize
-  useEffect(() => {
-    setNavHidden(screenSize < screenMd);
-  }, [screenSize]);
-
   return (
     <header
-      className={`py-6 fixed z-10 bg-white left-0 right-0 top-0 ${
+      className={`py-6 fixed z-50 bg-white left-0 right-0 top-0 transition-shadow ${
         shadowVisible ? 'shadow-lg' : ''
       }`}
     >
@@ -58,24 +55,24 @@ const Header = () => {
         </Link>
 
         <PrimaryNav
-          screenSize={screenSize}
-          setNavHidden={setNavHidden}
-          navHidden={navHidden}
-          toggleButtonRef={toggleButtonRef} // pass ref
+          navOpen={navOpen}
+          setNavOpen={setNavOpen}
+          isMobile={isMobile}
+          toggleButtonRef={toggleButtonRef}
         />
 
-        {screenSize < screenMd && (
+        {isMobile && (
           <button
             ref={toggleButtonRef}
             onClick={(e) => {
-              e.stopPropagation(); // prevent bubbling
-              setNavHidden((prev) => !prev);
-              console.log(`toggled nav: ${!navHidden}`);
+              e.stopPropagation();
+              setNavOpen((prev) => !prev);
             }}
-            className="text-lg"
+            className="text-xl"
+            aria-label="Toggle navigation"
           >
             <FontAwesomeIcon
-              icon={navHidden ? faBars : faXmark}
+              icon={navOpen ? faXmark : faBars}
               style={{ color: '#000000' }}
             />
           </button>
