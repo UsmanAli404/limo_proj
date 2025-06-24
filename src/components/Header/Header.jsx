@@ -16,7 +16,7 @@ const Header = () => {
 
   const toggleButtonRef = useRef(null);
 
-  // Handle scroll shadow
+  // Handle scroll shadower
   useEffect(() => {
     const handleScroll = () => {
       setShadowVisible(window.scrollY > 50);
