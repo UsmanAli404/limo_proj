@@ -2,14 +2,14 @@
 
 import FooterLink from './FooterLink';
 
-const FooterLinkColumn = ({ title, links }) => {
+const FooterLinkColumn = ({col}) => {
   return (
     <div className="text-neutral-400">
-      <h2 className="font-semibold text-white my-6">{title}</h2>
+      <h2 className="font-semibold text-white my-6">{col.title}</h2>
       <ul>
-        {links.map((link, index) => (
-          <FooterLink link="#" key={index}>
-            {link}
+        {col.links.map((link, index) => (
+          <FooterLink link={link} key={index}>
+            {col.names[index]}
           </FooterLink>
         ))}
       </ul>

@@ -16,28 +16,30 @@ import FooterLink from './FooterLink';
 const Footer = () => {
   const linkCols = [
     {
+      title: 'Quick Links',
+      names: ['Home', 'Our Fleet', 'Services', 'Contact'],
+      links: ['/home', '/vehicles', '/services', '/contact'],
+    },
+    {
       title: 'Top cities',
-      links: ['New York', 'London', 'Berlin', 'Los Angeles', 'Paris'],
+      names: ['New York', 'London', 'Berlin', 'Los Angeles', 'Paris'],
+      links: ['#', '#', '#', '#', '#'],
+    },
+    {
+      title: 'Our Services',
+      names: ['Airport Transfers', 'Intercity Trips', 'Wedding Events', 'Business Meetings'],
+      links: ['/services#airport-transfers', '/services#intercity-trips', '/services#wedding-events', '/services#business-meetings'],
     },
     {
       title: 'Explore',
-      links: [
+      names: [
         'Intercity rides',
         'Limousine service',
         'Chauffeur service',
         'Private car service',
         'Airport transfers',
       ],
-    },
-    {
-      title: 'Intercity rides',
-      links: [
-        'East Hampton - New York',
-        'New York - Washington',
-        'New York - Philadelphia',
-        'Abu Dhabi - Dubai',
-        'London - Birmingham',
-      ],
+      links: ['#', '#', '#', '#', '#'],
     },
   ];
 
@@ -51,21 +53,45 @@ const Footer = () => {
 
   return (
     <footer className="container-big text-center md:text-left bg-neutral-800 text-sm font-light text-white rounded-[1.5rem] flex flex-col items-center md:block mt-20 mb-[2.5vw] py-12 md:px-20">
-      <div className="flex flex-col md:flex-row gap-8 md:justify-between mb-12">
+      <div className="flex flex-col md:flex-row gap-15 md:justify-between mb-12">
         <div className='flex flex-col justify-center items-center'>
           <Image
             src="/logo-footer.svg"
             width={112}
             height={40}
             alt="logo"
-            className="w-36 mx-auto md:mx-0"
+            className="w-36 mx-auto md:mx-0 pb-10"
           />
+          <p className="max-w-sm text-center md:text-left px-4">
+            Long Island Limo provides premier limousine services across New York, New Jersey, and Connecticut.
+            Specializing in luxurious, chauffeur-driven vehicles, we cater to weddings, proms, corporate events,
+            and airport transfers. Our fleet includes stretch limos, luxury sedans, SUVs, Vans, Coaches, and
+            Party Buses, ensuring comfort, safety, and professionalism for a stylish travel experience in the tri-state area.
+            <br />
+            <br />
+            For bookings or inquiries, call us at{": "}
+            <a href="tel:+16318597522" className="text-white underline hover:font-bold">
+              +16318597522
+            </a>.
+
+            <br />
+            <br />
+            Visit us at{": "}
+            <a
+              href="https://www.google.com/maps?q=82+Southaven+Ave,+Medford,+NY+11763"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline hover:font-bold"
+            >
+              82 Southaven Ave, Medford, NY 11763, United States
+            </a>.
+          </p>
           <FooterNewsLetter />
         </div>
 
         <div className="footer-links flex flex-col md:flex-row md:justify-between md:w-2/3">
           {linkCols.map((col) => (
-            <FooterLinkColumn {...col} key={col.title} />
+            <FooterLinkColumn col={col}  key={col.title} />
           ))}
         </div>
       </div>

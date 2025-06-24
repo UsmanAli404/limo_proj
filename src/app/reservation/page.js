@@ -27,8 +27,8 @@ const Reservation = () => {
   ];
   const onBooking = () => {
    emailjs.send(
-    "LimoService",           // Service ID
-  "NewTemplate",           // Template ID
+    "LimoService",
+    "NewTemplate",
   {
     name: reservationInfo.name,
     cellphone: reservationInfo.cellphone,
@@ -41,7 +41,7 @@ const Reservation = () => {
     vehicle: reservationInfo.vehicle?.name || "Not selected",
     specialRequest: reservationInfo.specialRequest || "None",
   },
-  "nDc1bgGPlprzJBOmy"       // Public Key
+  "nDc1bgGPlprzJBOmy"
 ).then((result) => {
       console.log("Email sent successfully:", result.text);
       alert("Reservation request sent!");
@@ -56,7 +56,6 @@ const Reservation = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center mt-28 overflow-hidden">
-      {/* High-quality background image using next/image */}
       <Image
         src={selectedVehicle?.image || "/placeholder.png"}
         alt="Background"
@@ -106,7 +105,6 @@ const Reservation = () => {
             </div>
           ))}
 
-          {/* Special Request (Optional) */}
           <div className="md:col-span-2">
             <label className="font-medium mb-1 block">Special Request</label>
             <textarea

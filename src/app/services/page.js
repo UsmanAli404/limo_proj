@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect } from "react";
-import services from "@/data/services"; // Adjusted path for Next.js
+import services from "@/data/services";
 
-const Service = ({ heading, image, text }) => {
+const Service = ({id, heading, image, text }) => {
   return (
-    <div className="mb-16">
+    <div id={id} className="mb-16 scroll-mt-32">
       <h2 className="text-4xl font-semibold mt-12">{heading}</h2>
       <p className="text-zinc-600 mt-4">
         {text}
@@ -27,10 +26,6 @@ const Service = ({ heading, image, text }) => {
 };
 
 const ServicesPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="container-default mt-28">
       <h1 className="text-5xl md:text-7xl font-semibold">Our Services</h1>
