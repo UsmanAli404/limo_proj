@@ -20,27 +20,13 @@ const Footer = () => {
       names: ['Home', 'Our Fleet', 'Services', 'Contact'],
       links: ['/home', '/vehicles', '/services', '/contact'],
     },
-    {
-      title: 'Top cities',
-      names: ['New York', 'London', 'Berlin', 'Los Angeles', 'Paris'],
-      links: ['#', '#', '#', '#', '#'],
-    },
+   
     {
       title: 'Our Services',
       names: ['Airport Transfers', 'Intercity Trips', 'Wedding Events', 'Business Meetings'],
       links: ['/services#airport-transfers', '/services#intercity-trips', '/services#wedding-events', '/services#business-meetings'],
     },
-    {
-      title: 'Explore',
-      names: [
-        'Intercity rides',
-        'Limousine service',
-        'Chauffeur service',
-        'Private car service',
-        'Airport transfers',
-      ],
-      links: ['#', '#', '#', '#', '#'],
-    },
+    
   ];
 
   const socialIcons = [
@@ -89,7 +75,7 @@ const Footer = () => {
           <FooterNewsLetter />
         </div>
 
-        <div className="footer-links flex flex-col md:flex-row md:justify-between md:w-2/3">
+        <div className="footer-links flex flex-col md:flex-row md:justify-evenly md:w-1/3">
           {linkCols.map((col) => (
             <FooterLinkColumn col={col}  key={col.title} />
           ))}
