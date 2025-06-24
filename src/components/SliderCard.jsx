@@ -2,7 +2,6 @@
 
 import { faBriefcase, faPerson } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
-import Link from 'next/link';
 import CapacityItem from '../app/home/FleetSection/CapacityItem';
 
 const SliderCard = ({ index, image, name, seats, luggage, chooseVehicle }) => {
