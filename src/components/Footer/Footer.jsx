@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import {
   faTwitter,
   faFacebook,
@@ -67,21 +68,25 @@ const Footer = () => {
             Specializing in luxurious, chauffeur-driven vehicles, we cater to weddings, proms, corporate events,
             and airport transfers. Our fleet includes stretch limos, luxury sedans, SUVs, Vans, Coaches, and
             Party Buses, ensuring comfort, safety, and professionalism for a stylish travel experience in the tri-state area.
-            <br />
-            <br />
-            For bookings or inquiries, call us at{": "}
-            <a href="tel:+16318597522" className="text-white underline hover:font-bold">
-              +16318597522
-            </a>.
+          </p>
+          <FooterNewsLetter />
+        </div>
 
-            <br />
-            <br />
-            Visit us at{": "}
+        <div className="footer-links flex flex-col gap-6 md:flex-row md:justify-evenly md:items-start w-full md:w-auto">
+          <div className="flex content-center grow items-center gap-1 mt-6 mx-4 max-w-xs md:max-w-sm">
+            <FaPhoneAlt className="text-xl text-white" />
+            <a href="tel:+16318597522" className="font-medium text-white hover:font-bold">
+              +1 631-859-7522
+            </a>
+          </div>
+
+          <div className="flex content-center items-center grow gap-1 mt-6 mx-4 max-w-xs md:max-w-sm">
+            <FaMapMarkerAlt className="text-xl text-white" />
             <a
               href="https://www.google.com/maps?q=82+Southaven+Ave,+Medford,+NY+11763"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white underline hover:font-bold"
+              className="font-medium text-white hover:font-bold"
             >
               82 Southaven Ave, Medford, NY 11763, United States
             </a>.
@@ -91,9 +96,11 @@ const Footer = () => {
 
         <div className="footer-links flex flex-col md:flex-row md:justify-between md:w-2/3">
           {linkCols.map((col) => (
-            <FooterLinkColumn col={col}  key={col.title} />
+            <FooterLinkColumn col={col} key={col.title} />
           ))}
+
         </div>
+
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between items-center">
