@@ -69,7 +69,6 @@ const Footer = () => {
             and airport transfers. Our fleet includes stretch limos, luxury sedans, SUVs, Vans, Coaches, and
             Party Buses, ensuring comfort, safety, and professionalism for a stylish travel experience in the tri-state area.
           </p>
-          <FooterNewsLetter />
         </div>
 
         <div className="footer-links flex flex-col gap-6 md:flex-row md:justify-evenly md:items-start w-full md:w-auto">
@@ -89,12 +88,9 @@ const Footer = () => {
               className="font-medium text-white hover:font-bold"
             >
               82 Southaven Ave, Medford, NY 11763, United States
-            </a>.
-          </p>
-          <FooterNewsLetter />
-        </div>
-
-        <div className="footer-links flex flex-col md:flex-row md:justify-between md:w-2/3">
+            </a>
+          </div>
+          
           {linkCols.map((col) => (
             <FooterLinkColumn col={col} key={col.title} />
           ))}
