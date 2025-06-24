@@ -68,7 +68,7 @@ const Reservation = () => {
       <div className="absolute inset-0 bg-black/10 z-0" />
 
       <div className="relative z-10 w-full max-w-6xl p-10">
-        <h1 className="text-white text-4xl md:text-5xl font-bold mb-8 text-center">
+        <h1 className="bg-white rounded-md text-neutral-700 text-2xl md:text-3xl font-bold mb-8 text-center py-3">
           Reservation
         </h1>
 
@@ -77,17 +77,17 @@ const Reservation = () => {
             { name: "name", label: "Full Name", type: "text", placeholder: "Your Full Name" },
             { name: "cellphone", label: "Phone", type: "tel", placeholder: "03XX-XXXXXXX" },
             { name: "email", label: "Email", type: "email", placeholder: "example@mail.com" },
-            { name: "numPassengers", label: "# of Passengers", type: "number", placeholder: "e.g. 4" },
+            { name: "numPassengers", label: "No. of Passengers", type: "number", placeholder: "e.g. 4" },
             { name: "pickup", label: "Pick Up", type: "text", placeholder: "Pick Up Address" },
             { name: "dropoff", label: "Drop Off", type: "text", placeholder: "Drop Off Address" },
             { name: "date", label: "Date", type: "date", min: new Date().toISOString().split("T")[0] },
             { name: "time", label: "Time", type: "time" },
           ].map((field, i) => (
             <div key={i}>
-              <label className="flex justify-between items-center font-medium text-neutral-800 text-sm mb-1">
-                <span className="uppercase tracking-wider">{field.label}</span>
+              <label className="flex justify-between items-center font-medium text-neutral-800 text-sm">
+                <span className="uppercase tracking-wider bg-gray-100 p-2 rounded-t-md">{field.label}</span>
                 {touched[field.name] && !isFieldValid(field.name) && (
-                  <span className="text-red-500 text-xs font-medium">Required</span>
+                  <span className="text-red-500 text-xs font-medium">*</span>
                 )}
               </label>
               <input
@@ -98,20 +98,25 @@ const Reservation = () => {
                 onChange={handleInput}
                 onBlur={() => handleBlur(field.name)}
                 min={field.min || undefined}
-                className="w-full border border-white bg-white text-black rounded px-3 py-2"
+                className="w-full border border-white bg-white text-black rounded rounded-tl-none px-3 py-2
+                focus:border-gray-700 focus:outline-none
+                "
               />
             </div>
           ))}
 
           <div className="md:col-span-2">
-            <label className="font-medium mb-1 block">Special Request</label>
+            <label className="flex justify-between items-center font-medium text-neutral-800 text-sm">
+              <span className="uppercase tracking-wider bg-gray-100 p-2 rounded-t-md">Special Request</span>
+            </label>
             <textarea
               name="specialRequest"
               value={reservationInfo.specialRequest}
               onChange={handleInput}
               rows="3"
               placeholder="Any special instructions..."
-              className="w-full border border-white bg-white text-black rounded px-3 py-2"
+              className="w-full border border-white bg-white text-black rounded px-3 py-2 rounded-tl-none
+               focus:border-gray-700 focus:outline-none"
             />
           </div>
         </form>
