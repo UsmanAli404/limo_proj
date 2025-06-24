@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import 'aos/dist/aos.css';
@@ -8,8 +8,11 @@ import Aos from 'aos';
 
 import cars from '@/data/cars';
 import SliderCard from '@/components/SliderCard';
+import { ReservationContext } from '@/contexts/ReservationContext';
 
-const CarSlider = ({ activeTab, setSelectedVehicle }) => {
+const CarSlider = ({ activeTab }) => {
+  const { setSelectedVehicle } = useContext(ReservationContext); // ✅ Use context instead of prop
+
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
@@ -39,19 +42,20 @@ const CarSlider = ({ activeTab, setSelectedVehicle }) => {
 
   const chooseVehicle = (name) => {
     const selected = cars.find((car) => car.name === name);
-    setSelectedVehicle(selected);
+    if (selected) {
+      setSelectedVehicle(selected); // ✅ Set in global context
+    }
   };
 
   const filteredCars = cars.filter((car) => {
     switch (activeTab) {
-      case 1:
-        return true;
       case 2:
         return car.type.includes('luxury');
       case 3:
         return car.type.includes('business');
       case 4:
         return car.type.includes('crossover');
+      case 1:
       default:
         return true;
     }
@@ -61,17 +65,17 @@ const CarSlider = ({ activeTab, setSelectedVehicle }) => {
     <div className="md:pl-16" data-aos="fade-left">
       <Carousel
         responsive={responsive}
-        showDots={true}
-        partialVisible={true}
-        swipeable={true}
-        draggable={true}
+        showDots
+        partialVisible
+        swipeable
+        draggable
       >
         {filteredCars.map((car, i) => (
           <SliderCard
             {...car}
             index={i}
-            key={car.id}
-            chooseVehicle={chooseVehicle}
+            key={car.id || i}
+            chooseVehicle={chooseVehicle} // ✅ Used by child card
           />
         ))}
       </Carousel>

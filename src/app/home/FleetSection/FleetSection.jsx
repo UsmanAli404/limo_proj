@@ -5,7 +5,7 @@ import SectionHeading from '@/components/SectionHeading';
 import CarSlider from './CarSlider';
 import Tabs from './Tabs';
 
-const FleetSection = ({ setSelectedVehicle }) => {
+const FleetSection = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
@@ -13,14 +13,11 @@ const FleetSection = ({ setSelectedVehicle }) => {
       <div className="container-default">
         <SectionHeading
           title="Our Fleet"
-          text="We offer an extensive fleet of vehicles including sedans, limousines and crossovers"
+          text="We offer an extensive fleet of vehicles including sedans, limousines, and crossovers."
         />
         <Tabs active={activeTab} handleClick={setActiveTab} />
       </div>
-      <CarSlider
-        activeTab={activeTab}
-        setSelectedVehicle={setSelectedVehicle}
-      />
+      <CarSlider activeTab={activeTab} />
     </div>
   );
 };

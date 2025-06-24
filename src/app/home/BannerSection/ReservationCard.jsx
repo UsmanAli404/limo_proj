@@ -183,7 +183,7 @@ const ReservationCard = () => {
           handleInput(e);
           validateField("contactNo", e.target.value);
         }}
-        value={reservationInfo.contactNo}
+        value={reservationInfo.contactNo || ''}
         name="contactNo"
         placeholder="Contact No."
         type="text"
