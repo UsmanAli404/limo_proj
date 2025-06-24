@@ -1,6 +1,6 @@
 // contexts/ReservationContext.js
 'use client';
-
+import cars from '@/data/cars';
 import { createContext, useState } from 'react';
 
 export const ReservationContext = createContext(null);
@@ -15,7 +15,7 @@ export const ReservationContextProvider = ({ children }) => {
     dropoff: '',
     time: '',
     date: '',
-    vehicle: null,
+    vehicle: cars[0], 
     specialRequest: '',
   });
 
