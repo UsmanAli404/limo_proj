@@ -55,22 +55,20 @@ const Reservation = () => {
   const isFormValid = requiredFields.every(isFieldValid);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center mt-28 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center mt-28 overflow-hidden rounded-3xl">
       <Image
         src={selectedVehicle?.image || "/placeholder.png"}
         alt="Background"
         fill
         quality={100}
-        className="object-cover object-center -z-10"
+        className="object-cover object-center -z-10 blur-xs"
         priority
       />
 
-      {/* Optional overlay (very light for readability) */}
       <div className="absolute inset-0 bg-black/10 z-0" />
 
-      {/* Transparent Form Container */}
       <div className="relative z-10 w-full max-w-6xl p-10">
-        <h1 className="text-white text-4xl md:text-5xl font-bold mb-8 text-center drop-shadow-lg">
+        <h1 className="text-white text-4xl md:text-5xl font-bold mb-8 text-center">
           Reservation
         </h1>
 
@@ -86,10 +84,10 @@ const Reservation = () => {
             { name: "time", label: "Time", type: "time" },
           ].map((field, i) => (
             <div key={i}>
-              <label className="flex justify-between font-medium mb-1">
-                <span>{field.label}</span>
+              <label className="flex justify-between items-center font-medium text-neutral-800 text-sm mb-1">
+                <span className="uppercase tracking-wider">{field.label}</span>
                 {touched[field.name] && !isFieldValid(field.name) && (
-                  <span className="text-red-400 text-sm">Required</span>
+                  <span className="text-red-500 text-xs font-medium">Required</span>
                 )}
               </label>
               <input
@@ -118,7 +116,6 @@ const Reservation = () => {
           </div>
         </form>
 
-        {/* Action Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4 text-white">
           <Link href="/vehicles">
             <Button>
