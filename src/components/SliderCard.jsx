@@ -7,26 +7,20 @@ import { useContext } from 'react';
 import { ReservationContext } from '@/contexts/ReservationContext';
 import CapacityItem from '../app/home/FleetSection/CapacityItem';
 
-const SliderCard = ({ image, name, seats, luggage }) => {
-  const { setSelectedVehicle } = useContext(ReservationContext);
-
-  const handleClick = () => {
-    const vehicle = {
-      name,
-      image,
-      seats,
-      luggage,
-    };
-    setSelectedVehicle(vehicle);
-  };
-
+const SliderCard = ({ index, image, name, seats, luggage, chooseVehicle }) => {
   return (
     <Link
       href={{ pathname: '/vehicles', query: { selected: name } }}
-      onClick={handleClick}
     >
-      <div className="slider-card mx-2 pb-8 cursor-pointer">
-        <div className="car-image w-full h-[290px] flex items-center justify-center bg-zinc-100 rounded-[1.5rem] hover:shadow-md px-8">
+      <div
+        onClick={()=>chooseVehicle(name)} 
+        className={`slider-card mx-2 pb-8 cursor-pointer ${index === 0 && ""}`}
+      >
+        <div 
+          className={`car-image w-full h-[290px] flex items-center justify-center ${
+            index === 0 ? "bg-accent/20" : "bg-zinc-100"
+          } rounded-[1.5rem] hover:shadow-md px-8`}
+        >
           <Image
             src={image}
             alt={`${name} - image`}

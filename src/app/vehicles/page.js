@@ -2,13 +2,14 @@
 
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import cars from "@/data/cars";
 import SliderCard from "@/components/SliderCard";
 import Button from "@/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { ReservationContext } from "@/contexts/ReservationContext"; // 
+import { ReservationContext } from "@/contexts/ReservationContext";
 
 const Vehicles = () => {
   const [filter, setFilter] = useState("1");
@@ -26,8 +27,8 @@ const Vehicles = () => {
   };
 
   const handleBookNow = () => {
-    setContextVehicle(selectedVehicle); // Store in context
-    router.push("/reservation");        // Navigate
+    setContextVehicle(selectedVehicle);
+    router.push("/reservation");
   };
 
   return (
@@ -38,8 +39,14 @@ const Vehicles = () => {
       </p>
 
       <div className="grid md:grid-cols-2 gap-12 my-16">
-        <div className="bg-accent/40 p-4 rounded-[1rem] flex items-center">
-          <img className="w-full" src={selectedVehicle.image} alt="" />
+        <div className="bg-zinc-200 p-4 rounded-[1rem] flex items-center">
+          <Image
+            className="w-full"
+            src={selectedVehicle.image}
+            alt={selectedVehicle.name}
+            layout="responsive"
+            objectFit="cover"
+          />
         </div>
         <div className="mt-4">
           <h2 className="text-4xl font-semibold">{selectedVehicle.name}</h2>
@@ -72,8 +79,16 @@ const Vehicles = () => {
       <div className="grid sm:grid-cols-2 md:grid-cols-3">
         {cars
           .filter((car) => {
-            if (filter === "1") return true;
-            return car.type.includes(filter === "2" ? "luxury" : filter === "3" ? "business" : "crossover");
+            switch (filter) {
+              case "1":
+                return true;
+              case "2":
+                return car.type.includes("luxury");
+              case "3":
+                return car.type.includes("business");
+              case "4":
+                return car.type.includes("crossover");
+            }
           })
           .map((car, i) => (
             <SliderCard {...car} key={i} chooseVehicle={chooseVehicle} />
