@@ -35,7 +35,7 @@ const Vehicles = () => {
     <div className="container-default text-center md:text-left mt-28 py-8 px-20">
       <h1 className="text-5xl md:text-7xl font-semibold">Vehicles</h1>
       <p className="md:w-2/3 text-zinc-600">
-        We offer a variety of luxurious vehicles for you to Choose...
+        We offer a variety of luxurious vehicles for you to choose from...
       </p>
 
       <div className="grid md:grid-cols-2 gap-12 my-16">
@@ -66,7 +66,7 @@ const Vehicles = () => {
       <h2 className="text-4xl font-semibold mb-6">Other Cars</h2>
       <label className="ml-2" htmlFor="filter">Filter By:</label>
       <select
-        className="rounded-[0.4rem] border-2 border-zinc-400 py-1 px-4 ml-2 mb-8"
+        className="rounded-[0.4rem] border border-zinc-400 py-1 pl-2 pr-4 ml-2 mb-8"
         onChange={(e) => setFilter(e.target.value)}
         value={filter}
       >

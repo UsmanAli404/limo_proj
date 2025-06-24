@@ -50,7 +50,7 @@ const Header = () => {
             alt="LIMO-logo"
             width={112}
             height={40}
-            className="w-28"
+            className="w-36"
           />
         </Link>
 

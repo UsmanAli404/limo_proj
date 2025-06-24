@@ -58,7 +58,7 @@ const Footer = () => {
             width={112}
             height={40}
             alt="logo"
-            className="w-28 mx-auto md:mx-0"
+            className="w-36 mx-auto md:mx-0"
           />
           <FooterNewsLetter />
         </div>
