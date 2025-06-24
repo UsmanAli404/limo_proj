@@ -54,89 +54,94 @@ const Reservation = () => {
   }
   const isFormValid = requiredFields.every(isFieldValid);
 
-  return (
-    <div className="relative min-h-screen flex items-center justify-center mt-28 overflow-hidden rounded-3xl">
+ return (
+  <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 mt-20">
+    {/* Left: Image */}
+    <div className="relative h-[500px] md:h-auto ">
       <Image
         src={selectedVehicle?.image || "/placeholder.png"}
-        alt="Background"
+        alt="Vehicle"
         fill
         quality={100}
-        className="object-cover object-center -z-10 blur-xs"
+        className="object-contain object-center"
         priority
       />
+      <div className="absolute inset-0 bg-black/10 rounded-3xl"  />
+    </div>
 
-      <div className="absolute inset-0 bg-black/10 z-0" />
+    {/* Right: Form */}
+    <div className="bg-white text-black p-8 md:p-12 flex flex-col justify-center">
+      <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center text-neutral-700">
+        Reservation
+      </h1>
 
-      <div className="relative z-10 w-full max-w-6xl p-10">
-        <h1 className="bg-white rounded-md text-neutral-700 text-2xl md:text-3xl font-bold mb-8 text-center py-3">
-          Reservation
-        </h1>
-
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
-          {[
-            { name: "name", label: "Full Name", type: "text", placeholder: "Your Full Name" },
-            { name: "cellphone", label: "Phone", type: "tel", placeholder: "03XX-XXXXXXX" },
-            { name: "email", label: "Email", type: "email", placeholder: "example@mail.com" },
-            { name: "numPassengers", label: "No. of Passengers", type: "number", placeholder: "e.g. 4" },
-            { name: "pickup", label: "Pick Up", type: "text", placeholder: "Pick Up Address" },
-            { name: "dropoff", label: "Drop Off", type: "text", placeholder: "Drop Off Address" },
-            { name: "date", label: "Date", type: "date", min: new Date().toISOString().split("T")[0] },
-            { name: "time", label: "Time", type: "time" },
-          ].map((field, i) => (
-            <div key={i}>
-              <label className="flex justify-between items-center font-medium text-neutral-800 text-sm">
-                <span className="uppercase tracking-wider bg-gray-100 p-2 rounded-t-md">{field.label}</span>
-                {touched[field.name] && !isFieldValid(field.name) && (
-                  <span className="text-red-500 text-xs font-medium">*</span>
-                )}
-              </label>
-              <input
-                name={field.name}
-                type={field.type}
-                placeholder={field.placeholder}
-                value={reservationInfo[field.name]}
-                onChange={handleInput}
-                onBlur={() => handleBlur(field.name)}
-                min={field.min || undefined}
-                className="w-full border border-white bg-white text-black rounded rounded-tl-none px-3 py-2
-                focus:border-gray-700 focus:outline-none
-                "
-              />
-            </div>
-          ))}
-
-          <div className="md:col-span-2">
-            <label className="flex justify-between items-center font-medium text-neutral-800 text-sm">
-              <span className="uppercase tracking-wider bg-gray-100 p-2 rounded-t-md">Special Request</span>
+      <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          { name: "name", label: "Full Name", type: "text", placeholder: "Your Full Name" },
+          { name: "cellphone", label: "Phone", type: "tel", placeholder: "03XX-XXXXXXX" },
+          { name: "email", label: "Email", type: "email", placeholder: "example@mail.com" },
+          { name: "numPassengers", label: "No. of Passengers", type: "number", placeholder: "e.g. 4" },
+          { name: "pickup", label: "Pick Up", type: "text", placeholder: "Pick Up Address" },
+          { name: "dropoff", label: "Drop Off", type: "text", placeholder: "Drop Off Address" },
+          { name: "date", label: "Date", type: "date", min: new Date().toISOString().split("T")[0] },
+          { name: "time", label: "Time", type: "time" },
+        ].map((field, i) => (
+          <div key={i}>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">
+              {field.label}
+              {touched[field.name] && !isFieldValid(field.name) && (
+                <span className="text-red-500 ml-1">*</span>
+              )}
             </label>
-            <textarea
-              name="specialRequest"
-              value={reservationInfo.specialRequest}
+            <input
+              name={field.name}
+              type={field.type}
+              placeholder={field.placeholder}
+              value={reservationInfo[field.name]}
               onChange={handleInput}
-              rows="3"
-              placeholder="Any special instructions..."
-              className="w-full border border-white bg-white text-black rounded px-3 py-2 rounded-tl-none
-               focus:border-gray-700 focus:outline-none"
+              onBlur={() => handleBlur(field.name)}
+              min={field.min || undefined}
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-gray-500"
             />
           </div>
-        </form>
+        ))}
 
-        <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4 text-white">
-          <Link href="/vehicles">
-            <Button>
-              <FontAwesomeIcon icon={faArrowLeft} className="text-white mr-3" />
-              Select Vehicle
-            </Button>
-          </Link>
-          <Link href={isFormValid ? "/thankyou" : "/reservation"}>
-            <Button disabled={!isFormValid} className={!isFormValid ? "opacity-50 cursor-not-allowed" : ""} onClick={onBooking}>
-              Reserve Now
-            </Button>
-          </Link>
+        {/* Special Request - Full Width */}
+        <div className="md:col-span-2">
+          <label className="block text-sm font-medium text-neutral-700 mb-1">Special Request</label>
+          <textarea
+            name="specialRequest"
+            value={reservationInfo.specialRequest}
+            onChange={handleInput}
+            rows="3"
+            placeholder="Any special instructions..."
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-gray-500"
+          />
         </div>
+      </form>
+
+      {/* Buttons */}
+      <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4">
+        <Link href="/vehicles">
+          <Button>
+            <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
+            Select Vehicle
+          </Button>
+        </Link>
+        <Link href={isFormValid ? "/thankyou" : "/reservation"}>
+          <Button
+            disabled={!isFormValid}
+            className={!isFormValid ? "opacity-50 cursor-not-allowed" : ""}
+            onClick={onBooking}
+          >
+            Reserve Now
+          </Button>
+        </Link>
       </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Reservation;
