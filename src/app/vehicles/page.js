@@ -28,7 +28,7 @@ const Vehicles = () => {
 
   const handleBookNow = () => {
     setContextVehicle(selectedVehicle);
-    router.push("/reservation");
+    router.push("/book-online");
   };
 
   return (

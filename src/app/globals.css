@@ -48,3 +48,13 @@ body {
     background-repeat: no-repeat;
     height: 700px;
   }
+
+@theme {
+  --shadow-xl: 0 0 15px rgba(0, 0, 0, 0.25); 
+}
+
+@media (min-width: 1250px) {
+  .at-1250 {
+    flex-direction: column;
+  }
+}

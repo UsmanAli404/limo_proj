@@ -4,7 +4,7 @@ import services from "@/data/services";
 
 const Service = ({ id, heading, image, text }) => {
   return (
-    <div id={id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+    <div id={id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
       <img className="w-full h-56 object-cover" src={image} alt={`service-${heading}`} />
       <div className="p-6">
         <h2 className="text-2xl font-semibold text-neutral-800">{heading}</h2>
