@@ -25,7 +25,7 @@ const Footer = () => {
     {
       title: 'Our Services',
       names: ['Airport Transfers', 'Intercity Trips', 'Wedding Events', 'Business Meetings'],
-      links: ['/services#airport-transfers', '/services#intercity-trips', '/services#wedding-events', '/services#business-meetings'],
+      links: ['/services', '/services', '/services', '/services'],
     },
     
   ];
@@ -40,7 +40,7 @@ const Footer = () => {
 
   return (
     <footer className="container-big text-center md:text-left bg-neutral-800 text-sm font-light text-white rounded-[1.5rem] flex flex-col items-center md:block mt-20 mb-[2.5vw] py-12 md:px-20">
-      <div className="flex flex-col md:flex-row gap-15 md:justify-between mb-12">
+      <div className="flex flex-col md:flex-row md:justify-between mb-12">
         <div className='flex flex-col justify-center items-center'>
           <Image
             src="/logo-footer.svg"
@@ -58,37 +58,44 @@ const Footer = () => {
         </div>
 
         <div className="footer-links flex flex-col gap-6 md:flex-row md:justify-evenly md:items-start w-full md:w-auto">
-          <div className="flex content-center grow items-center gap-1 mt-6 mx-4 max-w-xs md:max-w-sm">
-            <FaPhoneAlt className="text-xl text-white" />
-            <a href="tel:+16318597522" className="font-medium text-white hover:font-bold">
-              +1 631-859-7522
-            </a>
-          </div>
+          <div className='flex flex-col justify-center items-center self-center
+          mt-6
+          gap-3 sm:gap-8'>
+            <div className="
+            flex justify-center items-center 
+            gap-1 mx-4 ">
+              <FaMapMarkerAlt className="text-xl text-white" />
+              <a
+                href="https://www.google.com/maps?q=82+Southaven+Ave,+Medford,+NY+11763"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
+              >
+                82 Southaven Ave, Medford, NY 11763, United States
+              </a>
+            </div>
 
-          <div className="flex content-center items-center grow gap-1 mt-6 mx-4 max-w-xs md:max-w-sm">
-            <FaMapMarkerAlt className="text-xl text-white" />
-            <a
-              href="https://www.google.com/maps?q=82+Southaven+Ave,+Medford,+NY+11763"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-white hover:font-bold"
-            >
-              82 Southaven Ave, Medford, NY 11763, United States
-            </a>
+            <div className="
+            flex justify-center items-center 
+            gap-1 mx-4 ">
+              <FaPhoneAlt className="text-xl text-white" />
+              <a href="tel:+16318597522" 
+                className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
+              >
+                +1 631-859-7522
+              </a>
+            </div>
           </div>
           
           {linkCols.map((col) => (
             <FooterLinkColumn col={col} key={col.title} />
           ))}
-
         </div>
 
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between items-center">
         <p className="font-medium mb-2">&copy; 2025 Long Island Car & Limo</p>
-
-       
 
         <ul className="social-links text-2xl flex gap-6">
           {socialIcons.map((icon, i) => (

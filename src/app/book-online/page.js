@@ -128,7 +128,7 @@ const Reservation = () => {
             Select Vehicle
           </Button>
         </Link>
-        <Link href={isFormValid ? "/thankyou" : "/reservation"}>
+        <Link href={isFormValid ? "/thankyou" : "/book-online"}>
           <Button
             disabled={!isFormValid}
             className={!isFormValid ? "opacity-50 cursor-not-allowed" : ""}

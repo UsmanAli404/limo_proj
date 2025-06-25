@@ -19,7 +19,7 @@ const BannerSection = () => {
         We offer professional car rental & limousine services in our range of high-end vehicles
       </p>
 
-      <Link href="/reservation" className="pr-4">
+      <Link href="/book-online" className="pr-4">
         <Button className=''>Book Now</Button>
       </Link>
       <Link href="tel:+16318597522">
