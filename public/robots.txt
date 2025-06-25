@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /api/
 Allow: /
 
 Sitemap: https://longislandcarandlimo.com/sitemap.xml
