@@ -7,39 +7,39 @@ import imgRoyce from "../../public/cars/car-rolls-royce-ghost.webp";
 const cars = [
   {
     id: 1,
-    name: "Mersedes Benz S Class",
+    name: "Premium Sedan",
     detail:
-      "The campaign for the new S-Class provides authentic insights into the lives of Alicia Keys, Lewis Hamilton and Roger Federer. The spot shows what “Cares for what matters” really means to our testimonials.",
+      "Experience first-class comfort in our Mercedes-Benz S-Class, the ultimate luxury sedan for executive travel, airport transfers, and special occasions in NYC and Long Island. With sleek design, premium leather interiors, and cutting-edge safety features, this vehicle redefines sophistication for black car service clients.",
     image: imgBenzSClass,
-    seats: 2,
-    luggage: 2,
+    seats: 3,
+    luggage: 3,
     type: ["luxury"],
   },
   {
     id: 2,
-    name: "Mersedes Benz V Class",
+    name: "Sprinter Vans",
     detail:
-      "The V-Class impresses with its modern design and high-class appeal – both inside and out. Strong character lines and high-quality materials as well as the attractive operating and display concept make it a highly desirable vehicle.",
+      "Our Mercedes-Benz Sprinter Van offers spacious group transportation with luxury amenities, perfect for corporate events, airport shuttles, and weddings. Accommodating up to 12 passengers, it blends comfort, style, and utility—ideal for group limo service in Manhattan, Long Island, and the Bronx.",
     image: imgBenzVClass,
-    seats: 6,
-    luggage: 4,
+    seats: 12,
+    luggage: 10,
     type: ["crossover"],
   },
   {
     id: 3,
-    name: "Audi A8",
+    name: "Luxury Premium Sedan",
     detail:
-      "Live the future with us. A design that takes elegance and dynamics to a new level, with numerous assistance systems, a new operating concept that offers a new level of intuitive use, and above all more space. Configure your own personal space in the back, more flexible and comfortable than ever before, and experience even greater luxury in the new Audi A8 L.",
+      "The Audi A8 L is a top-tier premium sedan designed for VIPs and business travelers seeking elegance and innovation. With advanced driver assistance systems, plush seating, and quiet ride quality, it’s the smart choice for black car service, luxury hourly rentals, and high-end chauffeur service.",
     image: imgAudiA8,
-    seats: 2,
-    luggage: 2,
+    seats: 3,
+    luggage: 3,
     type: ["business"],
   },
   {
     id: 4,
     name: "Cadillac Escalade",
     detail:
-      "Exciting, bold, iconic—move through the world in a vehicle befitting your status. In motion and at rest, Escalade demands attention with exceptional physicality and magnificent design. Witness as luxury transforms into legendary.",
+      "Turn heads with our Cadillac Escalade—an iconic SUV perfect for VIP transportation, celebrity arrivals, and luxury family travel. Its bold design, roomy cabin, and tech-forward features make it ideal for airport limo service, prom nights, and NYC sightseeing in pure style.",
     image: imgEscalade,
     seats: 4,
     luggage: 4,
@@ -47,12 +47,12 @@ const cars = [
   },
   {
     id: 5,
-    name: "Rolls Royce Ghost",
+    name: "Rolls Royce",
     detail:
-      "The Rolls-Royce Ghost is a luxury sedan known for its elegance, comfort, and performance. The Ghost also comes equipped with advanced technology, such as a 12.3-inch infotainment screen, adaptive headlights. Additionally, the interior is crafted from high-quality materials, including soft leather and real wood trim, providing a refined and luxurious experience for passengers.",
+      "Indulge in the pinnacle of luxury with the Rolls-Royce Ghost—our most prestigious sedan for weddings, elite transfers, and special celebrations. Featuring handcrafted interiors, whisper-quiet performance, and unmatched elegance, it's the preferred choice for VIP clients seeking chauffeured excellence across New York.",
     image: imgRoyce,
-    seats: 5,
-    luggage: 5,
+    seats: 2,
+    luggage: 2,
     type: ["luxury", "crossover"],
   },
 ];
