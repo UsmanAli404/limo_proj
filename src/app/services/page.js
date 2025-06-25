@@ -1,5 +1,5 @@
 'use client';
-
+import Head from 'next/head';
 import services from "@/data/services";
 
 const Service = ({ id, heading, image, text }) => {
@@ -70,11 +70,53 @@ const ServicesPage = () => {
 
 
   return (
+    <>
+        <Head>
+      <title>Luxury Limo Services in Long Island | Long Island Car and Limo</title>
+      <meta
+        name="description"
+        content="Explore our premium limo services across Long Island for weddings, birthdays, proms, corporate travel, airport rides, and winery tours. Book today!"
+      />
+      <meta name="robots" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="author" content="Long Island Car and Limo" />
+      <meta
+        name="keywords"
+        content="Long Island limo services, wedding limo Long Island, airport car service Long Island, corporate limo, birthday limo Long Island, prom limo NYC, winery limo tour"
+      />
+
+      {/* Open Graph */}
+      <meta property="og:title" content="Limo Services in Long Island | Long Island Car and Limo" />
+      <meta
+        property="og:description"
+        content="Reliable and luxurious limo services in Long Island for all events. Airport transfers, corporate travel, birthdays, weddings, and more."
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://longislandcarandlimo.com/services" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Long Island Limo Services | Book Your Ride Today" />
+      <meta
+        name="twitter:description"
+        content="Professional limo service in Long Island for all your needs—weddings, proms, events, and more."
+      />
+
+      <link rel="canonical" href="https://longislandcarandlimo.com/services" />
+    </Head>
     <div className="container-default mt-28 px-4">
       <h1 className="text-4xl md:text-6xl font-bold text-neutral-800 mb-4">Our Limo Services</h1>
-      <p className="text-zinc-600 md:w-2/3 text-lg">
-        Serving Long Island and surrounding areas, we offer luxury car and limo services tailored to every special occasion — from birthdays to corporate events.
-      </p>
+<p className="text-zinc-600 md:w-2/3 text-lg">
+  <a
+    href="https://longislandcarandlimo.com/"
+    className="text-[#262626] font-bold no-underline hover:text-green-600"
+  >
+    Visit Long Island Car & Limo
+  </a>{" "}
+  is serving Long Island and surrounding areas, offering luxury car and limo services tailored to every special occasion — from birthdays to corporate events.
+</p>
+
+
 
       <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
         {servicesList.map((service) => (
@@ -82,6 +124,7 @@ const ServicesPage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

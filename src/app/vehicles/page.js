@@ -33,7 +33,7 @@ const Vehicles = () => {
 
   return (
     <div className="container-default text-center md:text-left mt-28 py-8 px-20">
-      <h1 className="text-5xl md:text-7xl font-semibold">Vehicles</h1>
+      <h1 className="text-5xl md:text-7xl font-semibold">Our Fleet</h1>
       <p className="md:w-2/3 text-zinc-600">
         We offer a variety of luxurious vehicles for you to choose from...
       </p>
