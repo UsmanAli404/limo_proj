@@ -18,30 +18,16 @@ const Footer = () => {
   const linkCols = [
     {
       title: 'Quick Links',
-      names: ['Home', 'Our Fleet', 'Services', 'Contact'],
-      links: ['/home', '/vehicles', '/services', '/contact'],
+      names: ['Home', 'Our Fleet', 'Services', 'Book Now'],
+      links: ['/home', '/vehicles', '/services', '/book-online'],
     },
-    {
-      title: 'Top cities',
-      names: ['New York', 'London', 'Berlin', 'Los Angeles', 'Paris'],
-      links: ['#', '#', '#', '#', '#'],
-    },
+   
     {
       title: 'Our Services',
       names: ['Airport Transfers', 'Intercity Trips', 'Wedding Events', 'Business Meetings'],
       links: ['/services#airport-transfers', '/services#intercity-trips', '/services#wedding-events', '/services#business-meetings'],
     },
-    {
-      title: 'Explore',
-      names: [
-        'Intercity rides',
-        'Limousine service',
-        'Chauffeur service',
-        'Private car service',
-        'Airport transfers',
-      ],
-      links: ['#', '#', '#', '#', '#'],
-    },
+    
   ];
 
   const socialIcons = [
@@ -100,14 +86,9 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between items-center">
-        <p className="font-medium mb-2">&copy; 2025 Long Island Limo</p>
+        <p className="font-medium mb-2">&copy; 2025 Long Island Car & Limo</p>
 
-        <ul className="bottom-links flex flex-col md:flex-row gap-4 text-neutral-400 font-normal">
-          <FooterLink link="#">Terms</FooterLink>
-          <FooterLink link="#">Privacy policy</FooterLink>
-          <FooterLink link="#">Legal notice</FooterLink>
-          <FooterLink link="#">Accessibility</FooterLink>
-        </ul>
+       
 
         <ul className="social-links text-2xl flex gap-6">
           {socialIcons.map((icon, i) => (

@@ -54,7 +54,7 @@ const PrimaryNav = ({ navOpen, setNavOpen, isMobile, toggleButtonRef }) => {
           { name: 'Home', path: '/' },
           { name: 'Our Fleet', path: '/vehicles' },
           { name: 'Services', path: '/services' },
-          { name: 'Contact', path: '/contact' },
+          { name: 'Book Now', path: '/book-online' },
         ].map(({ name, path }) => (
           <li key={path}>
             <Link href={path} className={isActive(path)}>
