@@ -71,7 +71,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
               >
-                82 Southaven Ave, Medford, NY 11763, United States
+                14 birchgrove dr , central islip 11722
               </a>
             </div>
 
@@ -82,7 +82,7 @@ const Footer = () => {
               <a href="tel:+16318597522" 
                 className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
               >
-                +1 631-859-7522
+                +1 516-427-7900
               </a>
             </div>
           </div>
