@@ -65,21 +65,22 @@ const Footer = () => {
             flex justify-center items-center 
             gap-1 mx-4 ">
               <FaMapMarkerAlt className="text-xl text-white" />
-              <a
-                href="https://www.google.com/maps?q=82+Southaven+Ave,+Medford,+NY+11763"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
-              >
-                14 birchgrove dr , central islip 11722
-              </a>
+<a
+  href="https://www.google.com/maps?q=14+Birchgrove+Dr,+Central+Islip,+NY+11722"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
+>
+  14 Birchgrove Dr, Central Islip, NY 11722
+</a>
+
             </div>
 
             <div className="
             flex justify-center items-center 
             gap-1 mx-4 ">
               <FaPhoneAlt className="text-xl text-white" />
-              <a href="tel:+16318597522" 
+              <a href="tel:+15164277900" 
                 className="font-medium text-white hover:text-gray-200 max-w-xs md:max-w-sm"
               >
                 +1 516-427-7900
